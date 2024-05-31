@@ -5,7 +5,9 @@ simulacion = Simulacion()
 def reiniciar_simulacion(request):
     simulacion.reiniciar()
     return JsonResponse({
-        "automata": simulacion.grid
+        "automata": simulacion.grid.tolist(),
+        "humedad" : simulacion.humedad_grid.tolist(),
+        "quemado" : simulacion.quemado
     })
 
 def siguiente_paso(request):

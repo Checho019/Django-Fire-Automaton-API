@@ -28,12 +28,10 @@ class Simulacion:
         self.quemado = que.quemado
 
     def poner_fuego(self, punto):
-        posx, posy = obtener_click(punto[0], punto[1])
-        self.grid[posx][posy] = 2
+        self.grid[punto[0]][punto[1]] = 2
 
     def poner_agua(self, punto):
-        posx, posy = obtener_click(punto[0], punto[1])
-        self.humedad_grid = aplicar_agua(self.humedad_grid, self.kernel, (posx, posy), self.grid)
+        self.humedad_grid = aplicar_agua(self.humedad_grid, self.kernel, (punto[0], punto[1]), self.grid)
 
     def reiniciar(self):
         self.grid = self.estado_inicial
