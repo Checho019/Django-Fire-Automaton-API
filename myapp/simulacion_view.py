@@ -22,8 +22,8 @@ def pender_fuego(request):
     x = request.GET.get('x')
     y = request.GET.get('y')
     try:
-        x = float(x)
-        y = float(y)
+        x = int(x)
+        y = int(y)
         simulacion.poner_fuego([x, y])
     except (TypeError, ValueError):
         return JsonResponse({"error": "Los parámetros deben ser números flotantes"}, status=400)
